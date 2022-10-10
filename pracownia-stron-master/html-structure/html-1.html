@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="structure.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+    <!-- poniżej wpisujemy kod HTML -->
+
+
+
+    <!-- poniżej tej linijki nie ruszaj -->
+</head>
+<body>
+<main>
+    <h1>Ten plik HTML nie ma znacznika [title]. Dodaj go.</h1>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie poprawności html");
+        selectorExists('title', 1, "Każda strona musi posiadać [title] w [head]");
+    });
+</script>
+</body>
+</html>

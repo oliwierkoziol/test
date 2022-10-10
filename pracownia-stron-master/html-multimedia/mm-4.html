@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="multimedia.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+
+<p>
+    Wstaw element odtwarzacza [video] z filmem:<br>
+    https://file-examples.com/storage/feb2e515cc6339d7ba1ffcd/2018/04/file_example_OGG_480_1_7mg.ogg
+    <br>
+    Jeżeli plik nie chce się załadować, <a href="https://file-examples.com/wp-content/uploads/2018/04/file_example_OGG_480_1_7mg.ogg">wejdź tutaj</a>,
+    poczekaj na załadowanie, a później skopiuj adres (będzie podobny do tego z przykładu).<br>
+    Pamiętaj, żeby dodać w treści tekst dla przeglądarek nie obsługujących video.
+</p>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('video', 1, "Istnieje jedno zdjęcie");
+        selectorExists('source', 1, "Istnieje figure");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lists dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="lists.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body class="col-6">
+
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższą listę</h1>
+<main>
+    <img src="./list-2.png" alt="Wygląd gotowego elementu"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        attributeValue('ol', 'type', "1", "Typ powinen być cyfrowy");
+        selectorExists('ol', 1, "Musisz stworzyć listę");
+        selectorExists('li', 4, "Lista powinna zawierać 4 elementy");
+        selectorTextContains('li:first-child', "Harry Potter");
+        selectorTextContains('li:last-child', "Debbie Harry");
+        selectorExists('p', 1);
+        selectorTextContains('p', 'Lista popularności');
+    });
+</script>
+</body>
+</html>

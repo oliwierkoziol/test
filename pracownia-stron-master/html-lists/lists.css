@@ -1,0 +1,18 @@
+ul {
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+li {
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    margin-top: -1px;
+    padding: 5px 20px;
+    text-indent: 0;
+}

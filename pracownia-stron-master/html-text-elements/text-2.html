@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="texts.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+<div class="clearfix"></div>
+<h1 class="instructions">Utwórz poniższą strukturę znaczników HTML</h1>
+<p>Kolory i style wynikają z CSS, nie musisz się nimi przejmować.</p>
+<img src="./text-2.png" alt="Wygląd elementu"/>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('main', 1, "Istnieje jeden main");
+        selectorExists('aside', 1, "Istnieje jeden aside");
+        selectorExists('article', 1, "Istnieje jeden article");
+        selectorExists('main > h1', 1, "Istnieje jeden h1 w main");
+        selectorExists('article > h2', 1, "Istnieje jeden h2 w article");
+        selectorExists('aside > h2', 1, "Istnieje jeden h2 w aside");
+        selectorDontExits('main > aside', "aside nie jest w main")
+        selectorDontExits('aside > article', "article nie jest w aside")
+    });
+</script>
+</body>
+</html>

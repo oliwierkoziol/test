@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="structure.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+    document.addEventListener('DOMContentLoaded', () => {
+        let date = new Date();
+        let dt = document.createElement('h1');
+        dt.innerText = 'Minęła godzina ' + date.getHours() + ':' + date.getMinutes();
+        document.body.appendChild(dt);
+    })
+<!-- poniżej tej linijki nie ruszaj -->
+
+<h3>W tym pliku brakuje jednego znacznika. Dodaj zarówno otwarcie, jak i zamknięcie.</h3>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        setTimeout(() => {
+            log(true, "Sprawdzanie HTML");
+            selectorExists('h1', 1, 'Znacznik nie został dodany poprawnie.');
+        }, 1000);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<style>
+    html {
+        font-size: 30px;
+        background-color: #000000;
+        font-family: monospace;
+        text-shadow: 2px 2px #b3ef85;
+    }
+    #matrix {
+        flex-direction: row;
+        width: 100vw;
+        height: 100vh;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        /*margin-right: 15px;*/
+        /*width: 20px;*/
+    }
+    .color-0 {
+        color: #28af64;
+    }
+    .color-1 {
+        color: chartreuse;
+    }
+    .color-2 {
+        color: darkseagreen;
+    }
+    .color-3 {
+        color: limegreen;
+    }
+</style>
+<body>
+<div id="matrix"></div>
+
+<script>
+    const MAX_NUM_OF_ROWS = 20;
+        let matrix = document.getElementById('matrix');
+        let rows = [];
+
+        for(let i = 0; i < 50; i++) {
+            rows[i] = document.createElement('div');
+            rows[i].innerHTML = "&nbsp;";
+//rows[i].innerHTML = i%10;
+            matrix.appendChild(rows[i]);
+        }
+
+let letter = 'A';
+        setInterval(() => {
+            for (let i = 0; i < rows.length; i++) {
+                if (Math.random() < 0.5) {
+                    let letter = (String.fromCharCode(51 + Math.round(Math.random() * 22)));
+                    if (Math.random() > 0.4) {
+                        letter = '&nbsp;';
+                    }
+                    let newElement = '<span class="color-' + (Math.round(Math.random() * 1000 ) % 4)+'">'+letter+'</span>';
+                    rows[i].innerHTML = newElement + rows[i].innerHTML;
+                    if (rows[i].children.length > MAX_NUM_OF_ROWS) {
+                        rows[i].removeChild(rows[i].children[MAX_NUM_OF_ROWS ]);
+                    }
+                }
+            }
+        }, 50);
+</script>
+
+</body>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+    <link href="structure.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- poniżej wpisujemy/modyfikujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h2>Proszę utworzyć link do pliku &quot;html-6b.html&quot; znajdującego się w tym samym katalogu.</h2>
+<h2>Proszę również utworzyć link do www.zskocjan.pl, który będzie otwierał się w nowym oknie.</h2>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie poprawności html");
+        selectorExists("a[href='html-6b.html']", 1, "Nie ma odnośnika do html-6b.html");
+        selectorExists("a[href='https://www.zskocjan.pl']", 1, "Nie ma odnośnika do strony szkoły");
+        attributeValue("a[href='https://www.zskocjan.pl']", "target", "_blank", "Odnośnik do strony szkoły powinien otwierać się w nowym oknie.");
+    });
+</script>
+
+</body>
+</html>

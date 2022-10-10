@@ -1,0 +1,49 @@
+body.cztery {
+    background-color: red;
+    color: white;
+    text-align: center;
+    margin-top: 30vh;
+    font-size: 80px;
+    font-family: 'Lobster', cursive;
+}
+
+body.cztery::after {
+    content: "Od razu lepiej wygląda!";
+}
+
+body.cztery h2 {
+    display: none;
+}
+
+
+body.fiveok {
+    background-color: #28af64;
+    color: white;
+}
+body.fiveok h3 {
+    display: none !important;
+}
+body.fiveok h2 {
+    /*text-indent: -10000px;*/
+    color: transparent;
+}
+body.fiveok h2:before {
+    content: "Ufffff, dziękuję za wyłączenie";
+    color: white;
+    /*display: none;*/
+}
+
+a[href='html-6b.html'] {
+    color: #28af64;
+    background-color: #b3ef85;
+    padding: 10px 20px;
+    width: 40%;
+    display: inline-block;
+}
+a[href='https://www.zskocjan.pl'] {
+    color: white;
+    background-color: navy;
+    padding: 10px 20px;
+    width: 40%;
+    display: inline-block;
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lists dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="lists.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body class="col-6">
+
+<!-- poniżej wpisujemy kod HTML -->
+
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższą listę</h1>
+<main>
+    <img src="./list-3.png" alt="Wygląd gotowego elementu"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorDontExits('ol', "To nie jest lista OL");
+        selectorDontExits('ul', "To nie jest lista UL");
+        selectorDontExits('li', "Elementy nie są tworzone za pomocą li");
+        selectorExists('dl', 1, "Musisz stworzyć listę");
+        selectorExists('dt', 3, "Lista powinna zawierać 3 elementy");
+        selectorExists('dd', 3, "Lista powinna zawierać 3 elementy");
+        selectorTextContains('dt:nth-of-type(1)', "DNS");
+        selectorTextContains('dt:nth-of-type(2)', "HTTP");
+        selectorTextContains('dd:nth-of-type(3)', "HyperText Markup Language");
+        // selectorTextContains('dd:first-child', "Domain Name System");
+    });
+</script>
+</body>
+</html>

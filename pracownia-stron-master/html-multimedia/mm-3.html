@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="multimedia.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+<!-- poniżej tej linijki nie ruszaj -->
+
+<p>
+    Wstaw element odtwarzacza [audio] z muzyką:<br>
+    https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Creative_Commons/Nine_Inch_Nails/Ghosts_I-IV/Nine_Inch_Nails_-_07_-_7_Ghosts_I.mp3<br>
+    Pamiętaj, że dla audio można (czyt. trzeba) użyć figure/figcaption.
+</p>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('audio', 1, "Istnieje jedno zdjęcie");
+        selectorExists('figure', 1, "Istnieje figure");
+        selectorExists('figcaption', 1, "Istnieje figcaption");
+        attributeValue('audio', 'src', "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Creative_Commons/Nine_Inch_Nails/Ghosts_I-IV/Nine_Inch_Nails_-_07_-_7_Ghosts_I.mp3", "Adres jest poprawny");
+        innerHTMLnotEmpty('audio', "Pamiętaj, że w treści znacznika [audio] trzeba umieścić tekst wyświetlany dla użytkowników, którzy nie mogą odtwarzać mp3.");
+    });
+</script>
+</body>
+</html>

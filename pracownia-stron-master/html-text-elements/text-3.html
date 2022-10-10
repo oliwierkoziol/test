@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="texts.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body class="text-3">
+
+<!-- poniżej wpisujemy kod HTML -->
+<!-- poniżej tej linijki nie ruszaj -->
+<div class="clearfix"></div>
+<h1 class="instructions">Utwórz poniższą strukturę znaczników HTML</h1>
+<p>Kolory i style wynikają z CSS, nie musisz się nimi przejmować.</p>
+<img src="./text-3.png" alt="Wygląd elementu"/>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('header', 1, "Istnieje jeden header");
+        selectorExists('nav', 1, "Istnieje jeden nav");
+        selectorExists('footer', 1, "Istnieje jeden footer");
+        selectorExists('section', 2, "Istnieją dwie sekcje");
+        selectorExists('section > article', 2, "Istnieją dwa artykuły w dwóch sekcjach");
+    });
+</script>
+</body>
+</html>

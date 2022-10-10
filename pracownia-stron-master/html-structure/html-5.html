@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <!-- poniżej wpisujemy/modyfikujemy kod HTML -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+    <meta http-equiv="refresh" content="2">
+    <!-- poniżej tej linijki nie ruszaj -->
+    <link href="structure.css" rel="stylesheet">
+</head>
+<body>
+
+<h2>Z powodu jednego elementu nagłówka [head], następuje ciągłe przeładowanie. Wyłącz to.</h2>
+
+<script>
+    let interval = setInterval(() => {
+        document.body.innerHTML += '<h3>...</h3>';
+    }, 200);
+
+    setTimeout(() => {
+        clearInterval(interval);
+        document.body.classList.add('fiveok');
+    }, 3000);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pl" class="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="multimedia.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+    <script src="c.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+<canvas id="c"></canvas>
+<!-- poniżej tej linijki nie ruszaj -->
+
+<p>
+    Wstaw znacznik canvas do rysowania grafiki. Dodaj mu atrybut id o wartości "c".
+</p>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('canvas', 1, "Istnieje canvas");
+        attributeValue('canvas', 'id', 'c', "Canvas ma mieć atrybut id='c'");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="texts.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body class="">
+
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+<div class="clearfix"></div>
+<h1>Wprowadź tekst korzystając ze znaczników</h1>
+<p>[p], [abbr] </p>
+<img src="./text-5.png" alt="Wygląd elementu"/>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('p', 2, "Istnieje jeden p");
+        selectorExists('abbr', 1, "Istnieje jeden abbr");
+        attributeValue('abbr', 'title', "HyperText Markup Language", "Wprowadź atrybut title dla znacznika abbr");
+        selectorTextContains('p:nth-of-type(1)', 'język znaczników');
+    });
+</script>
+</body>
+</html>

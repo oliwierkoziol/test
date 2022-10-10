@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <title>no title!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        section {
+            display: flex;
+        }
+        div {
+            width: 1vw;
+            height: 1vw;
+            border-radius: 3vw;
+            border: 1px solid transparent;
+        }
+    </style>
+
+    <script>
+        let divs = [];
+        let width = 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            let body = document.querySelector('body');
+            width = body.getBoundingClientRect().width;
+            for(let i = 0; i < 50; i++) {
+                let div = document.createElement('section');
+                for( let i = 0; i < 100; i++) {
+                    let inner = document.createElement('div')
+                    div.appendChild(inner);
+                    divs.push(inner);
+                }
+                body.appendChild(div);
+            }
+        });
+        let randomR = Math.random() * 2;
+        let randomG = Math.random() * 2;
+        let randomB = Math.random() * 2;
+        document.addEventListener('mousemove', (e) => {
+            divs.forEach(div => {
+                let rect = div.getBoundingClientRect();
+                let distX = rect.x - e.x;
+                let distY = rect.y - e.y;
+                let dist = Math.sqrt(distX*distX + distY*distY);
+
+                let color = (1555 * dist / width);
+                let r = normalize(color * randomR);
+                let g = normalize(color * randomG);
+                let b = normalize(color * randomB);
+
+                div.style.backgroundColor = `rgba(${r}, ${g}, ${b})`;
+                // div.style.borderColor = `rgba(${g}, ${b}, ${r})`;
+            });
+        });
+        function normalize(value) {
+            let retval = value;
+            if (value < 0) {
+                retval = 0;
+            }
+            if (retval > 255) {
+                retval = 255;
+            }
+
+            return retval;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

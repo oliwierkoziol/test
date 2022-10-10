@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="texts.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+    <link href="../lib/atom-one-dark.min.css" rel="stylesheet">
+    <script src="../lib/highlight.min.js"></script>
+
+</head>
+<body class="">
+
+<!-- poniżej wpisujemy kod HTML -->
+let message = "Jestem alertem";
+alert(message);
+<!-- poniżej tej linijki nie ruszaj -->
+
+<div class="clearfix"></div>
+<h1>Wprowadź tekst korzystając ze znaczników</h1>
+<p>[code], [pre] - zachowując kolejność. Znacznik code powinien zawierać klasę "language-js", wtedy będzie ładnie
+    kolorowany.</p>
+<img alt="Wygląd elementu" src="./text-6.png"/>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        hljs.highlightAll();
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('code', 1, "Istnieje jeden code");
+        selectorExists('pre', 1, "Istnieje jeden pre");
+        selectorTextContains('pre', 'alert(');
+        selectorTextContains('pre', 'message');
+    });
+</script>
+</body>
+</html>
