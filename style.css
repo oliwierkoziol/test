@@ -1,0 +1,65 @@
+body {
+    margin: 0px;
+    position: absolute;
+    font-size: 8.45px;
+    font-family: Lora;
+    height: 941px;
+    width: 665px;
+}
+strong {
+    font-family: 'Lato';
+}
+.subtext {
+    position: absolute;
+    font-size: 42px;
+    margin-top: 400px;
+    margin-left: 90px;
+    font-family: Tahoma;
+    color: gray;
+}
+
+.left {
+    width: 465px;
+    height: 941px;
+    float: left;
+}
+.first {
+    margin-top: -5px;
+    width: 63%; 
+    float: left;
+    background-color: rgb(203, 202, 202);
+    height: 479px;
+}
+h1 {
+    font-size: 150px; 
+    margin: 0px;
+    font-family: Tahoma;
+    margin-top: -28px;
+    height: 181px;
+}
+.first-p {
+    margin: -15px 33px 33px 33px;
+    height: 308px;
+}
+
+.second {
+    margin-top: -5px;
+    width: 37%;
+    height: 479px; 
+    float: left;
+}
+.second-p {
+    margin: 13px;
+    height: 308px;
+}
+
+.right {
+    float: left;
+    background-color: rgb(203, 202, 202);
+    width: 200px;
+    height: 941px;
+}
+.third-p {
+    margin: 24px 36px 10px 14px;
+    height: 891px;
+}
