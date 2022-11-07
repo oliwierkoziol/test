@@ -1,0 +1,16 @@
+p {
+    color: red;
+    background-color: yellow;
+}
+h3 {
+    font-size: 40px;
+}
+blockquote {
+    background-color: #eee;
+    padding: 30px;
+}
+code {
+    font-family: monospace;
+    font-style: italic;
+    color: green;
+}

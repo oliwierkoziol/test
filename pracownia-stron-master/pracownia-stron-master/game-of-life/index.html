@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game of life</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table tr td {
+            border: 1px solid forestgreen;
+            width: 20px;
+            height: 20px;
+            padding: 1px;
+        }
+        td.alive {
+            background-color: darkseagreen;
+        }
+        div {
+            display: flex;
+            margin-bottom: 20px;
+            background-color: darkseagreen;
+            padding: 20px;
+            align-content: center;
+            border-radius: 10px;
+        }
+        button {
+            font-family: monospace;
+            padding: 4px 30px;
+            border: 0;
+            background-color: #1b9448;
+            color: white;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <button id="clear">Clear</button>
+    <button id="rand">Rand</button>
+    <button id="show" onclick="show()">Show</button>
+    <button id="go">...It's alive!</button>
+    <input type="range" min="4" max="50" value="20" onchange="setWidth(this)" />
+</div>
+
+<table id="table"></table>
+<script>
+    let rows = [];
+    let sizeX = 30;
+    let sizeY = 30;
+    let matrix = [];
+
+    function show() {
+        document.querySelectorAll('.alive').forEach(td => td.classList.remove('alive'));
+        for (let x = 0; x < sizeX; x++) {
+            for (let y = 0; y < sizeY; y++) {
+                if (matrix[x][y]) {
+                    document.getElementById('cell-'+x+'-'+y).classList.add('alive');
+                }
+            }
+        }
+    }
+
+    const killOrRespawn = (e) => {
+        let td = e.currentTarget;
+        let val = matrix[td.dataset.x][td.dataset.y];
+        matrix[td.dataset.x][td.dataset.y] = 1 - val;
+
+        td.classList.toggle('alive');
+    };
+
+    function gogogo() {
+        let nextgen = [];
+        for (let x = 0; x < sizeX; x++) {
+            nextgen[x] = [];
+            for (let y = 0; y < sizeY; y++) {
+                // prev
+                let num1  = (y === 0) ? 0 : matrix[x][y - 1];
+                let num2= (y + 1 >= sizeY) ? 0 : matrix[x][y + 1];
+
+                // up
+                let num3 = (x === 0) ? 0 : matrix[x - 1][y];
+                let num4 = (x + 1 >= sizeX) ? 0 : matrix[x + 1][y];
+
+                let num5 = (y === 0 || x === 0) ? 0 : matrix[x - 1][y - 1];
+                let num6 = (y === 0 || (x + 1 >= sizeX)) ? 0 : matrix[x + 1][y - 1];
+
+                let num7 = ((x + 1 >= sizeX) || (y + 1 >= sizeY)) ? 0 : matrix[x + 1][y + 1];
+                let num8 = ((x === 0) || (y + 1 >= sizeY)) ? 0 : matrix[x - 1][y + 1];
+
+                let numOf = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8;
+                let isAlive = matrix[x][y];
+                if (isAlive > 0) {
+                    nextgen[x][y] = numOf === 2 || numOf === 3 ? 1 : 0;
+                } else {
+                    nextgen[x][y] = numOf === 3 ? 1 : 0;
+                }
+            }
+        }
+        matrix = nextgen;
+        show();
+    }
+
+    const randit = () => {
+        for (let x = 0; x < sizeX; x++) {
+            matrix[x] = [];
+            for (let y = 0; y < sizeY; y++) {
+                matrix[x][y] = Math.random() > 0.7 ? 1 : 0;
+            }
+        }
+        show();
+    };
+
+    const clear = () => {
+        for (let x = 0; x < sizeX; x++) {
+            matrix[x] = [];
+            for (let y = 0; y < sizeY; y++) {
+                matrix[x][y] = 0;
+            }
+        }
+        show();
+    };
+
+    function create() {
+        let table = document.getElementById('table');
+        for (let i = 0; i < sizeX; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < sizeY; j++) {
+                let td = document.createElement('td');
+                td.dataset.x = i;
+                td.dataset.y = j;
+                td.id = `cell-${i}-${j}`;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        document.querySelectorAll('td').forEach(td => td.addEventListener('click', killOrRespawn));
+    }
+
+    function setWidth(e) {
+        document.styleSheets[0].cssRules[1].style.height = e.value + 'px';
+        document.styleSheets[0].cssRules[1].style.width = e.value + 'px';
+    }
+
+    function init() {
+        document.getElementById('go').addEventListener('click', gogogo);
+        document.getElementById('show').addEventListener('click', show);
+        document.getElementById('clear').addEventListener('click', clear);
+        document.getElementById('rand').addEventListener('click', randit);
+
+        create();
+        randit();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+
+</script>
+</body>
+</html>

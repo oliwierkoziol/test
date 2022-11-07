@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="texts.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body class="col-6">
+
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1 class="instructions">Utwórz poniższy układ tekstu</h1>
+<p>Kolory i style wynikają z CSS, nie musisz się nimi przejmować</p>
+<main>
+    <img src="./text-1.png" alt="Wygląd elementu"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('h1', 2, "Istnieje jeden nagłówek h1");
+        selectorExists('h2', 1, "Istnieje jeden nagłówek h2");
+        selectorExists('h3', 1, "Istnieje jeden nagłówek h3");
+        selectorExists('h4', 1, "Istnieje jeden nagłówek h4");
+        selectorExists('h5', 1, "Istnieje jeden nagłówek h5");
+        selectorExists('h6', 1, "Istnieje jeden nagłówek h6");
+        selectorExists('hr', 1, "Istnieje jedna linia pozioma");
+        selectorExists('br', 1, "Istnieje jedno przejście do nowej linii");
+        selectorExists('p', 3, "Istnieją dwa paragrafy");
+        selectorExists('b', 1, "Istnieje jedno pogrubienie");
+        selectorExists('i', 1, "Istnieje jedno pochylenie");
+        selectorExists('s', 1, "Istnieje jedno przekreślenie");
+        selectorExists('u', 1, "Istnieje jedno podkreślenie");
+
+    });
+</script>
+</body>
+</html>

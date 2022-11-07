@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="texts.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body class="col-6">
+
+<!-- poniżej wpisujemy kod HTML -->
+<figure>
+    <tu-brakuje-znacznika cite="https://pl.wikiquote.org/wiki/Stanis%C5%82aw_Lem">
+        <text-preformatowany>
+Jam jest robot hartowany,
+zdalnie prądem sterowany,
+nitowany z każdej strony,
+wyklepany, uzwojony,
+stańcie nit przy nicie,
+a zaraz ujrzycie
+czworgiem swych żeliwnych gałek,
+jaki ze mnie zbrojny śmiałek,
+jak lśni mój stalowy duch,
+naprzeciw żeliwnych dwóch,
+natężajcie cewki,
+bo to nie przelewki,
+a jeśli nie usłuchacie,
+elektryczne życie dacie!
+        </text-preformatowany>
+    </tu-brakuje-znacznika>
+    <figcaption>—Stanisław Lem, <cite>Bajki robotów</cite></figcaption>
+</figure>
+
+<!-- poniżej tej linijki nie ruszaj -->
+<div class="clearfix"></div>
+<h1>Uzupełnij znaczniki, żeby powstał cytat</h1>
+<p>Kolory i style wynikają z CSS, jeśli wstawisz dobry znacznik, będzie wyglądało tak samo..</p>
+<img src="./text-4.png" alt="Wygląd elementu"/>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('figure', 1, "Istnieje jeden figure");
+        selectorExists('blockquote', 1, "Istnieje jeden blockquote");
+        selectorExists('pre', 1, "Istnieje tekst preformatowany");
+    });
+</script>
+</body>
+</html>

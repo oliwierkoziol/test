@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>CSS dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="selectors.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+
+    <style>
+        /* tu wprowadzaj swój kod CSS */
+        * {
+            color: red;
+            background-color: white;
+        }
+        p {
+            color:green;
+        }
+        p a {
+            color: pink;
+        }
+        a {
+            color: navy;
+        }
+        /* poniżej nie wprowadzaj CSS */
+    </style>
+</head>
+<body>
+
+<main>
+    <h2>
+        [h2] Kolor &quot;red&quot;, tło &quot;white&quot;!
+    </h2>
+    <p>
+        [p] Paragraf powinien mieć kolor &quot;green&quot;!
+    </p>
+    <p>
+        [a] Odnośnik w paragrafie powinien mieć kolor różowy &quot;<a href="#">pink</a>&quot;.
+    </p>
+    <a href="#">Odnośnik poza paragrafem kolor &quot;navy&quot;.</a>
+</main>
+<aside>
+    <ol>
+        <li>Ustaw kolor [h2] na czerwony, a kolor tła na biały, ustawiając je dla wszystkich elementów (*)</li>
+        <li>Dla selektora elementu [p] ustaw kolor zielony</li>
+    </ol>
+
+    <img alt="Podgląd efektu" src="./selectors-1.png"/>
+</aside>
+
+</body>
+</html>

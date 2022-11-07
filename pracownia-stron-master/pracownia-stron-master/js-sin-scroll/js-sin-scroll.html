@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Scene-1</title>
+
+    <style>
+        html, body {
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+        h1 {
+            display: none;
+        }
+        #anim {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: monospace;
+            font-weight: bold;
+            color: white;
+            text-shadow: 6px 6px 0 #999;
+        }
+        #anim div {
+            display: inline-block;
+            font-size: 120px;
+            text-transform: uppercase;
+            position: absolute;
+            top: -100px;
+            left: -100px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="anim"></div>
+<h1>I was born with the wrong sign In the wrong house With the wrong ascendancy I took the wrong road
+That led to the wrong tendencies I was in the wrong place at the wrong time For the wrong reason and the wrong rhyme
+On the wrong day of the wrong week I used the wrong method with the wrong technique I was born with the wrong sign
+In the wrong house With the wrong ascendancy I took the wrong road
+That led to the wrong tendencies I was in the wrong place at the wrong time For the wrong reason and the wrong rhyme
+On the wrong day of the wrong week I used the wrong method with the wrong technique </h1>
+
+<script>
+/*
+ * Najważniejsze metody, do przetestowania i zapamiętania:
+ *
+ * document.getElementById
+ * document.querySelector
+ * document.querySelectorAll
+ * document.createElement
+ * HTMLElement.appendChild
+ * HTMLElement.style <-- obiekt pozwalający zmienić wszystkie style elementu!
+ *
+ */
+
+let letters = [];
+
+const CHAR_WIDTH = 75;
+const ACCEL_X = .2;
+const ACCEL_Y = 0.070;
+const X_MAX = Math.max(1920, document.body.getBoundingClientRect().width);
+const X_MIN = -2 * CHAR_WIDTH;
+const MATH_RAD = Math.PI/180;
+
+let iteration = 0;
+let height = document.body.getBoundingClientRect().height - 120;
+let step = .8;
+let stepIter = -.05;
+
+// tworzenie elementów DIV z literkami, dodanie do tablicy letters i jako podelementy w #anim
+document.addEventListener('DOMContentLoaded', () => {
+    let anim = document.getElementById('anim');
+    letters = [];
+    document.querySelector('h1').innerText.split("").forEach((oneLetter, letterNumber) => {
+        let letterDivElement = document.createElement('div');
+        letterDivElement.innerText = oneLetter;
+        anim.appendChild(letterDivElement);
+
+        letters.push(letterDivElement);
+    });
+
+    // setInterval uruchamia funkcję [tutaj anonimową, wywołującą colorThem] co określoną ilość milisekund [3 sekundy]
+    colorThem();
+    setInterval(() => colorThem(), 3000);
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+    window.requestAnimationFrame(drawAnimation);
+});
+
+let color = `rgb(255,255,255)`;
+
+function colorThem() {
+
+    let r = Math.ceil(Math.random() * 255);
+    let b = Math.ceil(Math.random() * 255);
+
+    letters.forEach((letterDivElement, letterNumber) => {
+        let g = 150 + Math.ceil(Math.sin(MATH_RAD * (letterNumber * 8)) * 105);
+        letterDivElement.style.color = `rgb(${r},${g},${b})`;
+    });
+}
+
+function drawAnimation() {
+    let letterMove = 0;
+
+    letters.forEach((letterDivElement, letterNumber) => {
+
+        letterMove = (100*letterNumber);
+
+        let x = Math.ceil((letterNumber * CHAR_WIDTH) - (ACCEL_X  * (iteration + letterNumber ) ));
+        let y = (height / 2 ) + (Math.sin((iteration + letterMove ) * ACCEL_Y * MATH_RAD ) * height / 2);
+
+        if (x < X_MIN || x > X_MAX) {
+            return;
+        }
+
+        // zapoznać się z obiektem globalnym Math (i jego metodami)
+        letterDivElement.style.top = Math.ceil(y) + 'px';
+        letterDivElement.style.left = Math.floor(x) + 'px';
+
+        iteration += step;
+    });
+    // if (Math.random() < 0.2) {
+    //     step += stepIter;
+    //     if (step < -1.3 || step > 2.9) {
+    //         stepIter *= -1;
+    //     }
+    // }
+
+    window.requestAnimationFrame(drawAnimation);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="multimedia.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+
+<h1>Wstaw zdjęcie kota, używając figure/figcaption/img</h1>
+<p>Adres zdjęcia: https://placekitten.com/500/300</p>
+<main>
+<!--    <img src="./mm-1.png" alt="Wygląd elementu"/>-->
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('img', 1, "Istnieje jedno zdjęcie");
+        selectorExists('figure', 1, "Istnieje figure");
+        selectorExists('figcaption', 1, "Istnieje figcaption");
+        attributeValue('img', 'src', "https://placekitten.com/500/300", "Adres jest poprawny");
+        attributeNotEmpty('img', 'alt', "Pamiętaj o określeniu tekstu dla przeglądarek bez grafiki!");
+    });
+</script>
+</body>
+</html>

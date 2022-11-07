@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Scene-1</title>
+
+    <style>
+        html, body {
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: black;
+            /*background-color: white;*/
+        }
+        h1 {
+            display: none;
+        }
+        #anim {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: monospace;
+            font-weight: bold;
+            color: white;
+            background-color: black;
+            /*text-shadow: 6px 6px 0 #999;*/
+        }
+        #anim div {
+            display: inline-block;
+            font-size: 120px;
+            text-transform: uppercase;
+            position: absolute;
+            top: -100px;
+            left: -100px;
+        }
+        form {
+            z-index: 1000;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+            background-color: forestgreen;
+        }
+        button {
+            background-color: forestgreen;
+            color: greenyellow;
+            border: 1px solid greenyellow;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="anim"></div>
+<h1>abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvw abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvw abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvw abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvw abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvwabcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvwxyz 1234567890 abcdefghijklmnopqrstuvw </h1>
+
+<script>
+    /*
+     * Najważniejsze metody, do przetestowania i zapamiętania:
+     *
+     * document.getElementById
+     * document.querySelector
+     * document.querySelectorAll
+     * document.createElement
+     * HTMLElement.appendChild
+     * HTMLElement.style <-- obiekt pozwalający zmienić wszystkie style elementu!
+     *
+     */
+    let letters = [];
+
+    const X_MAX = Math.max(1920, document.body.getBoundingClientRect().width);
+    const X_MIN = -100;
+    const MATH_RAD = Math.PI/180;
+
+    let iteration = 0;
+    let height = document.body.getBoundingClientRect().height - 120;
+    let stepIter = -.05;
+    let fullWidth = 1900;
+
+    let config = {
+        'charWidth': 75,
+        'step'  : 0.8,
+        'accelX': 0.5,
+        'accelY': 0.07,
+        'rotateAll' : false,
+        'rotateLetters' : false,
+        'onetime': -1,
+    };
+
+    // tworzenie elementów DIV z literkami, dodanie do tablicy letters i jako podelementy w #anim
+    document.addEventListener('DOMContentLoaded', () => {
+        let anim = document.getElementById('anim');
+        letters = [];
+        document.querySelector('h1').innerText.split("").forEach((oneLetter, letterNumber) => {
+            let letterDivElement = document.createElement('div');
+            letterDivElement.innerText = oneLetter;
+            anim.appendChild(letterDivElement);
+
+            letters.push(letterDivElement);
+        });
+
+        // setInterval uruchamia funkcję [tutaj anonimową, wywołującą colorThem] co określoną ilość milisekund [3 sekundy]
+        colorThem();
+        setInterval(() => colorThem(), 3000);
+        setInterval(() => rotateAll(), 100);
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+        window.requestAnimationFrame(drawAnimation);
+    });
+
+    let rotateDeg = 0;
+    function rotateAll() {
+        if (config.rotateLetters) {
+            letters.forEach((letterDivElement, letterNumber) => {
+                letterDivElement.style.rotate = rotateDeg + 'deg';
+            });
+        }
+        if (config.rotateAll) {
+            let anim = document.getElementById('anim');
+            anim.style.rotate = - (rotateDeg / 2) + 'deg';
+        }
+        rotateDeg -= 1;
+
+    }
+
+    let color = `rgb(255,255,255)`;
+
+    function colorThem() {
+
+        let r = Math.ceil(Math.random() * 255);
+        let b = Math.ceil(Math.random() * 255);
+
+        letters.forEach((letterDivElement, letterNumber) => {
+            let g = 150 + Math.ceil(Math.sin(MATH_RAD * (letterNumber * 8)) * 105);
+            letterDivElement.style.color = `rgb(${r},${g},${b})`;
+        });
+    }
+
+    function drawAnimation() {
+        let letterMove = 0;
+
+        letters.forEach((letterDivElement, letterNumber) => {
+
+            letterMove = (100*letterNumber);
+
+            let x = Math.ceil((letterNumber * config.charWidth) - (config.accelX  * (iteration + letterNumber ) ));
+            let y = (height / 2 ) + (Math.sin((iteration + letterMove ) * config.accelY * MATH_RAD ) * height / 2);
+            if (config.onetime > 0) {
+                while (x < X_MIN) {
+                    x = fullWidth + (x * 0.9);
+                    y = y * 0.9;
+                }
+            }
+
+            if (x < X_MIN || x > X_MAX) {
+                return;
+            }
+
+            // zapoznać się z obiektem globalnym Math (i jego metodami)
+            letterDivElement.style.top = Math.ceil(y) + 'px';
+            letterDivElement.style.left = Math.floor(x) + 'px';
+
+        });
+        iteration += config.step * 10;
+        // if (Math.random() < 0.2) {
+        //     step += stepIter;
+        //     if (step < -1.3 || step > 2.9) {
+        //         stepIter *= -1;
+        //     }
+        // }
+
+        window.requestAnimationFrame(drawAnimation);
+    }
+    function changeConfig(el, val, relative = "") {
+        let newValue = val;
+        if (relative) {
+            if (relative === '+') {
+                newValue = config[el] + val;
+            } else if (relative === '-') {
+                newValue = config[el] - val;
+            } else {
+                console.dir('ta', config[el], val)
+                newValue = config[el] * val;
+            }
+        }
+
+        console.dir(el, val);
+        config[el] = newValue;
+    }
+
+
+</script>
+
+<div class="controls">
+    <form method="get">
+        <button type="button" onclick="colorThem()">Kolor</button>
+        <button type="button" onclick="changeConfig('onetime', -1, '*')">Powroty</button>
+        <button type="button" onclick="changeConfig('rotateAll', true)">Obrót</button>
+        <button type="button" onclick="changeConfig('rotateAll', false)">Bez obrotu</button>
+        <button type="button" onclick="changeConfig('rotateLetters', true)">Obrót Liter</button>
+        <button type="button" onclick="changeConfig('rotateLetters', false)">Bez obrotu liter</button>
+        <button type="button" onclick="changeConfig('step', 0.2, '+')">+Prędkość</button>
+        <button type="button" onclick="changeConfig('step', 0.2, '-')">-Prędkość</button>
+        <button type="button" onclick="changeConfig('accelY', 0.02, '+')">+Amplituda</button>
+        <button type="button" onclick="changeConfig('accelY', 0.02, '-')">-Amplituda</button>
+    </form>
+</div>
+</body>
+</html>

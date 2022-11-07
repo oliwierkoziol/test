@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pl" class="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="multimedia.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+<!-- poniżej tej linijki nie ruszaj -->
+
+<h1>Proszę dodać znacznik [embed] ze źródłem: mm-6b.html</h1>
+<h2>Następnie utworzyć identyczny [embed] ale dodać mu klasę &quot;wide&quot;.</h2>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('embed', 2, 'Istnieją dwa znaczniki embed');
+        attributeValue('embed', 'src', 'mm-6b.html', "Podaj poprawny atrybut src.");
+        selectorExists('embed.wide', 1, "Utwórz drugi podobny element, ale dodaj mu klasę wide");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tables dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="forms.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższy formularz</h1>
+<main>
+    <img src="./form-2.png" alt="Wygląd tabeli"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie formularza");
+        selectorExists('form', 1, 'Istnieje formularz');
+        attributeValue('form', 'method', 'POST', "Metoda przy logowaniu musi być POST!");
+        selectorExists('label', 3, 'Pamiętaj o utworzeniu dwóch [label] dla username i password, i jednego dla checkboksa');
+        selectorExists('button[type="submit"], input[type="submit"]', 1, "Formularz musi mieć przycisk submit");
+        selectorExists('input[type="checkbox"]', 1, "Musisz dodać pole Remember me typu checkbox");
+        attributeExists('input[type="checkbox"]', 'checked', 'Pole Remember me musi być domyślnie zaznaczone');
+        attributeNotEmpty('input[type="checkbox"]', 'checked', 'Pole Remember me musi być domyślnie zaznaczone');
+    });
+</script>
+</body>
+</html>

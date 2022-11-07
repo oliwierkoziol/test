@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tables dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="tables.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<h2>Tutaj wpisz swój kod HTML</h2>
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższą tabelkę</h1>
+<main>
+    <img src="./table-5.png" alt="Wygląd tabeli"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie tabeli [wybiórcze!]");
+        selectorExists('caption', 1, 'Istnieje opis tabelki');
+        selectorExists('table', 1, 'Istnieje jedna tabela');
+        selectorExists('tr', 7, 'Ilość wierszy wynosi 7');
+        selectorDontExists('thead', "Ta tabelka nie ma nagłówka");
+        selectorDontExists("tfoot", "Ta tabelka nie ma też stopki");
+        attributeValue("td:nth-of-type(1)", "colspan", 2, "Pierwszy element łączy dwie kolumny.");
+        attributeValue("td:nth-of-type(1)", "rowspan", 2, "Pierwszy element łączy również dwa wiersze.");
+        attributeValue("th:nth-of-type(1)", "colspan", 3, "Pierwszy nagłówek zajmuje trzy kolumny.");
+        attributeValue("th:nth-of-type(2)", "colspan", 2, "Drugi nagłówek zajmuje diwe kolumny.");
+        selectorTextContains("tr:nth-of-type(1) th:nth-of-type(1)", "Clothes", "Brak: Clothes (pierwszy wiersz)");
+        selectorTextContains("tr:nth-of-type(1) th:nth-of-type(2)", "Accessories", "Brak: Accessories (pierwszy wiersz)");
+        selectorTextContains("tr:nth-of-type(2) th:nth-of-type(1)", "Trousers", "Brak: Trousers (drugi wiersz)");
+        selectorTextContains("tr:nth-of-type(2) th:nth-of-type(2)", "Skirt", "Brak: Skirt (drugi wiersz)");
+        selectorTextContains("tr:nth-of-type(2) th:nth-of-type(3)", "Dresses", "Brak: Dresses (drugi wiersz)");
+        selectorTextContains("tr:nth-of-type(2) th:nth-of-type(4)", "Bracelets", "Brak: Bracelets (drugi wiersz)");
+        selectorTextContains("tr:nth-of-type(2) th:nth-of-type(5)", "Rings", "Brak: Rings (drugi wiersz)");
+        selectorTextContains("tr:nth-of-type(3) th:nth-of-type(1)", "Belgium", "Brak: Belgium");
+        selectorTextContains("tr:nth-of-type(6) th:nth-of-type(1)", "The Netherlands", "Brak: The Netherlands");
+    });
+</script>
+</body>
+</html>

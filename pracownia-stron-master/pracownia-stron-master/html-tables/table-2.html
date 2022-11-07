@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tables dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="tables.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<h2>Tutaj wpisz swój kod HTML</h2>
+<!-- poniżej wpisujemy kod HTML -->
+
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższą tabelkę</h1>
+<main>
+    <img src="./table-2.png" alt="Wygląd tabeli"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie tabeli");
+        selectorsExists('caption', 'thead', 'table', 'tbody');
+        selectorDontExists('tfoot');
+        selectorExists('tbody td', 42, 'Mamy dokładnie 42 elementy td');
+        selectorExists('thead th', 2, 'Mamy dokładnie 2 elementy th w thead');
+        selectorExists('tbody th', 6, 'Mamy dokładnie 6 elementów th w tbody');
+        selectorTextContains('thead th:first-child', "Godzina odjazdu");
+        selectorTextContains('thead th:last-child', "Godzina przyjazdu");
+
+    });
+</script>
+</body>
+</html>

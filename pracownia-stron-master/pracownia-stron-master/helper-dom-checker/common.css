@@ -1,0 +1,131 @@
+.skip-this-file {}
+
+html {
+    max-width: 80vw;
+    padding: 1rem;
+    margin: auto;
+    line-height: 1.75;
+    font-size: 1.25em;
+    font-family: sans-serif;
+    box-sizing: content-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0.5rem 0 0.5rem;
+}
+section {
+    display: flex;
+}
+.col-6 {
+    width: 50%;
+}
+.clearfix {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+main > img {
+    border: 1px dotted #333;
+    padding: 5px;
+}
+
+/* Results */
+.all-ok {
+    background-color: #1b9448;
+    color: #b3ef85;
+    font-size: 1rem;
+    text-align: center;
+    font-family: monospace;
+}
+#results {
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    list-style-type: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    right: 0;
+    max-width: 25vw;
+    min-width: 20vw;
+    font-size: 0.7rem;
+}
+#results > * {
+    margin: 0;
+}
+.success {
+    background-color: #b3ef85;
+    color: #1b9448;
+    padding: 0.2rem 1rem;
+    display: none;
+}
+.warning {
+    background-color: #ff94b2;
+    color: #bd0a3b;
+    padding: 0.2rem 1rem;
+    overflow: hidden;
+}
+
+#results:hover {
+    height: 100vh;
+}
+#results:hover .success {
+    display: list-item;
+}
+.instructions:hover {
+    color: #28af64;
+    box-shadow: 6px 6px #28af64;
+    transition: 800ms ease-in;
+}
+.instructions {
+    /*transition-delay: 3000ms;*/
+    /*transition: 800ms ease-in;*/
+    color: #999;
+    width: 90%;
+    box-shadow: 6px 6px #aaa;
+    background-color: #eee;
+    padding: 10px 30px;
+}
+table.table-bordered {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+table.table-bordered td, table.table-bordered th {
+    border: 1px solid #000;
+}
+table.table-bordered th {
+    background-color: #eee;
+    border:1px solid black;
+}
+
+
+.w-100 {
+    width: 100%;
+}
+.w-50 {
+    width: 50%;
+}
+.pt-0 {
+    padding-top: 0;
+}
+
+table.pseudo-selectors tbody tr th {
+    text-align: left;
+    padding-left: 10px;
+}
+table.pseudo-selectors tr th {
+    padding: 0;
+    line-height: 150%;
+    font-weight: normal;
+}
+
+table.pseudo-selectors tr td {
+    width: 10%;
+    height: 20px;
+}
+
+table.pseudo-selectors tr th:first-child {
+    /*width: 50%;*/
+}

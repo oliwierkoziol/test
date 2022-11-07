@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Texts dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="texts.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body class="">
+
+<!-- poniżej wpisujemy kod HTML -->
+<!-- poniżej tej linijki nie ruszaj -->
+
+<div class="clearfix"></div>
+<h1>Stwórz listę zalogowanych użytkowników</h1>
+<p>Do określenia daty użyj znacznika [time]. Dla każdego użytkownika użyj [data] do określenia jego
+    user-id (atrybut value). Elementy czerwone pojawią się, jeśli poprawnie dodasz [data].</p>
+<br><br>
+<img alt="Wygląd elementu" src="./text-7.png" class="" />
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie struktury");
+        selectorExists('time', 1, "Określ datę używając znacznika time");
+        selectorExists('ul', 1, "Lista jest nieuporządkowana");
+        selectorExists('data', 3, "Istnieją 3 elementy listy");
+        selectorExists('li > data', 3, "Każdy użytkownik ma określone dane w znaczniku data");
+        selectorTextContains('li:nth-of-type(1)', 'Jan Kowalski', "Istnieje użyszkodnik Kowalski");
+        selectorTextContains('li:nth-of-type(2)', 'Bond', "Istnieje użyszkodnik Bond");
+        selectorTextContains('li:nth-of-type(3)', 'Zbyszko', "Istnieje użyszkodnik Zbyszko");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tables dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="tables.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<h2>Tutaj wpisz swój kod HTML</h2>
+<!-- poniżej wpisujemy kod HTML -->
+
+
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższą tabelkę</h1>
+<main>
+    <img src="./table-1.png" alt="Wygląd tabeli"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie tabeli");
+        attributeValue('tfoot tr th', 'colspan', 4, "Stopka powinna być połączona");
+        selectorExists('table', 1);
+        selectorDontExists('caption');
+        selectorsExists('thead', 'tbody', 'tfoot')
+        selectorExists('thead', 1);
+        selectorExists('thead tr', 1);
+        selectorExists('tfoot tr th', 1);
+        selectorExists('tbody tr', 2);
+        selectorExists('thead tr th', 2);
+        selectorExists('tbody tr:first-child td', 4, "Pierwszy wiersz tbody ma 4 elementy");
+        selectorTextContains('tfoot tr th', "November was more");
+
+    });
+</script>
+</body>
+</html>

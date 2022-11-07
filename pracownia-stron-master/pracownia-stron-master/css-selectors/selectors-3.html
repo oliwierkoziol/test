@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>CSS dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="selectors.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+
+    <style>
+        /* poniżej wprowadzaj CSS */
+        .row1 td:first-child {
+            background-color: red;
+        }
+        .row2 td:nth-child(3) {
+            background-color: red;
+        }
+        .row3 td:nth-child(3),
+        .row3 td:nth-child(7),
+        .row3 td:nth-child(8) {
+            background-color: red;
+        }
+        .row4 td:nth-child(3n) {
+            background-color: red;
+        }
+        .row5 td:nth-child(2n) {
+            background-color: red;
+        }
+        .row6 td:nth-child(4n+1) {
+            background-color: red;
+        }
+        .row7 td:nth-child(3n+2) {
+            background-color: red;
+        }
+        .row8 td:nth-child(2n) {
+            background-color: red;
+        }
+        .row9 td:nth-child(2n+4) {
+            background-color: red;
+        }
+        .row10 td:last-child {
+            background-color: red;
+        }
+        .row11 td:nth-last-child(3) {
+            background-color: red;
+        }
+        .row12 td:nth-last-child(3),
+        .row12 td:nth-last-child(4),
+        .row12 td:nth-last-child(5) {
+            background-color: red;
+        }
+    </style>
+</head>
+<body id="selectors-2">
+
+<main>
+    <div style="display: flex; flex-wrap: wrap">
+        <div class="w-50">&nbsp;</div>
+        <aside class="w-50">
+            <h1>Zadanie</h1>
+            <p>Nie zmieniając HTML, zbuduj poniższą kolorystykę</p>
+        </aside>
+
+        <div class="w-50" style="padding-top: 4px;">
+    <table class="table-bordered pseudo-selectors w-100">
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th colspan="10">.row1:first-child</th>
+        </tr>
+        <tr class="row1">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row2:nth-child</th>
+        </tr>
+        <tr class="row2">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row3:nth-child</th>
+        </tr>
+        <tr class="row3">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row4:nth-child(_n)</th>
+        </tr>
+        <tr class="row4">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row5:nth-child(_n)</th>
+        </tr>
+        <tr class="row5">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row6:nth-child(_n+_)</th>
+        </tr>
+        <tr class="row6">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row7:nth-child(_n+_)</th>
+        </tr>
+        <tr class="row7">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row8:nth-child(_n+_)</th>
+        </tr>
+        <tr class="row8">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row9:nth-child(_n+_)</th>
+        </tr>
+        <tr class="row9">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row910:last-child</th>
+        </tr>
+        <tr class="row10">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row11:nth-last-child</th>
+        </tr>
+        <tr class="row11">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <th colspan="10">.row12:nth-last-child</th>
+        </tr>
+        <tr class="row12">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        </tbody>
+    </table>
+        </div>
+        <aside class="w-50 pt-0">
+            <img alt="Podgląd efektu" src="./selectors-3.png"/>
+
+        </aside>
+    </div>
+</main>
+
+
+</body>
+</html>

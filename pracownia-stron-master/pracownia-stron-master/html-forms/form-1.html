@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forms dojo</title>
+    <link href="forms.css" rel="stylesheet">
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<!-- poniżej wpisujemy kod HTML -->
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższy formularz</h1>
+<main>
+    <img src="./form-1.png" alt="Wygląd tabeli"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie formularza");
+        selectorExists("header", 1, "Istnieje jeden header");
+        selectorExists("html head title", 1, "Strona ma tytuł");
+        selectorTextContains("header h1", "Formularz kontaktowy", "Header ma nagłówek z napisem 'Formularz kontaktowy'");
+        selectorExists("input[name='first_name']", 1, "Istnieje pole Imię z name 'first_name'");
+        selectorExists("input[name='last_name']", 1, "Istnieje pole Imię z name 'last_name'");
+        selectorExists("input[name='email']", 1, "Istnieje pole email");
+        attributeValue("input[name='email']", 'type', 'email' , "Istnieje pole email jest typu email");
+        selectorExists("textarea", 1, "Istnieje jedno pole typu textarea");
+        attributeValue("textarea", "name", "comments", "Textarea ma name=comments");
+        selectorTextContains("textarea", "Tu wpisz sw", "Komentarz ma wartość domyślną");
+        // selectorExists("input[type='checkbox']", 1, "Istnieje checkbox zapoznania z regulaminem");
+        selectorExists("input[name='read']", 1, "Istnieje checkbox zapoznania z regulaminem");
+        selectorExists("button[type='submit'], input[type='submit']", 1, "Istnieje jeden submit")
+    });
+</script>
+</body>
+</html>

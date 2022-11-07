@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- poniżej wpisujemy kod HTML -->
+<html>
+<!-- poniżej tej linijki nie ruszaj -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="structure.css" rel="stylesheet">
+    <title>HTML Dojo</title>
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<h1>W tym pliku, znacznik html nie ma atrybutu języka polskiego. Dodaj go.</h1>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie poprawności html");
+        attributeValue('html', 'lang', 'pl', "W znaczniku [html] brakuje określenia języka polskiego");
+    });
+</script>
+</body>
+</html>

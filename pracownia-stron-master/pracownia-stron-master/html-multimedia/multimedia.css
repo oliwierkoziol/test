@@ -1,0 +1,54 @@
+img[src='https://placekitten.com/200/300'] {
+    border: 10px solid #bbb;
+    padding: 10px;
+    background-color: #ddd;
+}
+
+figure {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+    border: 10px solid #eee;
+    margin: 0;
+}
+figcaption {
+    order: 2;
+    text-align: center;
+    color: #888;
+    text-transform: uppercase;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+audio {
+    margin-top: 50px;
+    width: 100%;
+}
+
+video {
+    width: 100%;
+    max-height: 70vh;
+    background-color: #ddd;
+}
+
+html.canvas-experiment {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+html.canvas-experiment body {
+    margin: 0;
+    padding: 0;
+}
+html.canvas-experiment canvas {
+    width: 98vw;
+    height: 88vh;
+}
+
+embed.wide {
+    width: 100%;
+    border: 1px solid #eee;
+    min-height: 200px;
+}

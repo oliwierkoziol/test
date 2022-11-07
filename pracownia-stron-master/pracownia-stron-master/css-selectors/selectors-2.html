@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>CSS dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="selectors.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+
+    <style>
+        /* tu wprowadzaj swój kod CSS */
+        h2 {
+            color: red;
+        }
+        section h3 {
+            color: blue;
+        }
+        article h3 {
+            color: #0aa;
+        }
+        section ol {
+            font-style: italic;
+        }
+        section ol li {
+            border-bottom: 1px solid gray;
+        }
+        section ol li:not(:first-child) {
+            color: gray;
+        }
+        section > p::before {
+            margin-left: 5px;
+            margin-right: 5px;
+            width: 10px;
+            line-height: 150%;
+            height: 10px;
+            background-color: red;
+            display: inline-block;
+            content: " ";
+        }
+
+        article > p {
+            background-color: red;
+        }
+        article ol li {
+            border-bottom: 1px solid gray;
+        }
+        article ol li:not(:first-child) {
+            color: gray;
+        }
+        article aside p {
+            background-color: pink;
+        }
+        /* poniżej nie wprowadzaj CSS */
+    </style>
+</head>
+<body id="selectors-2">
+
+<main>
+
+    <section>
+        <h2 title="color: red">Section </h2>
+        <h3 title="color: blue">Nagłówek h3 <strong>w section</strong></h3>
+        <p>Paragraf 1 <strong>w section</strong></p>
+        <p>Paragraf 2 <strong>w section</strong></p>
+        <p>Paragraf 3 <strong>w section</strong></p>
+        <ol type="I" title="font-style: italic; DLA ELEMENTÓW: border-top: 1px solid #999; color: #999;">
+            <li>Pierwszy element listy <strong>w section</strong></li>
+            <li>Drugi element listy <strong>w section</strong></li>
+            <li>Trzeci element listy <strong>w section</strong></li>
+            <li>Czwarty element listy <strong>w section</strong></li>
+        </ol>
+        <aside>
+            <p>Paragraf 4 <strong>w section / aside</strong></p>
+        </aside>
+    </section>
+
+    <article>
+        <h2>Article</h2>
+        <h3 title="color: #0aa">Nagłówek 3 <strong>w article</strong></h3>
+        <p title="background-color: red">Paragraf 1 <strong>w article</strong></p>
+        <p title="background-color: red">Paragraf 2 <strong>w article</strong></p>
+        <p title="background-color: red">Paragraf 3 <strong>w article</strong></p>
+        <ol type="1" title="font-style: italic; DLA ELEMENTÓW: border-top: 1px solid #999; color: #999;">
+            <li>Pierwszy element listy <strong>w article</strong></li>
+            <li>Drugi element listy <strong>w article</strong></li>
+            <li>Trzeci element listy <strong>w article</strong></li>
+            <li>Czwarty element listy <strong>w article</strong></li>
+        </ol>
+        <aside>
+            <p title="background-color: pink;">Paragraf 5 <strong>w article / aside</strong></p>
+        </aside>
+    </article>
+</main>
+
+
+
+<h1>Zadanie</h1>
+<p>Nie zmieniając nic w body, przygotuj style zmieniające wygląd wg schematu:</p>
+
+
+<aside>
+    <img alt="Podgląd efektu" src="./selectors-2.png"/>
+</aside>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tables dojo</title>
+    <link href="../helper-dom-checker/common.css" rel="stylesheet">
+    <link href="tables.css" rel="stylesheet">
+    <script src="../helper-dom-checker/dom-checker.js"></script>
+</head>
+<body>
+
+<h2>Tutaj wpisz swój kod HTML</h2>
+<!-- poniżej wpisujemy kod HTML -->
+
+
+
+<!-- poniżej tej linijki nie ruszaj -->
+<h1>Utwórz poniższą tabelkę</h1>
+<main>
+    <img src="./table-4.png" alt="Wygląd tabeli"/>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        log(true, "Sprawdzanie tabeli");
+
+        attributeValue("td:nth-of-type(1)", "rowspan", 2, "Pierwszy element jest rozpięty na dwa wiersze");
+        attributeValue("td:nth-of-type(2)", "colspan", 2, "Drugi element jest rozpięty na dwie kolumny");
+        attributeValue("th:nth-of-type(1)", "colspan", 2, "Pierwszy nagłówek jest rozpięty na dwie kolumny");
+
+        selectorTextContains("td:nth-of-type(1)", "Items A1", "Tekst: Items A1 nie odnaleziony na swoim miejscu");
+        selectorTextContains("td:nth-of-type(2)", "Items A2", "Tekst: Items A2 nie odnaleziony na swoim miejscu");
+        selectorTextContains("tr:nth-of-type(3) td:nth-of-type(1)", "C2,D2", "Tekst: C2,D2 nie odnaleziony na swoim miejscu");
+        selectorTextContains("tr:nth-of-type(2) th:nth-of-type(1)", "Items B2", "Tekst: Items B2 nie odnaleziony na swoim miejscu");
+        selectorTextContains("tr:nth-of-type(4) td:nth-of-type(1)", "Item number D1", "Tekst: Items number D1 nie odnaleziony na swoim miejscu");
+    });
+</script>
+</body>
+</html>
