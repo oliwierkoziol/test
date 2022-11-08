@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@media screen and (min-width: 700px) {
+    body {
+        background-color: whitesmoke;
+        background-image: url(https://zskocjan.pl/wp-content/uploads/2019/01/zs3_380.png);
+        background-repeat: no-repeat;
+        background-position: 50% 65px;
+    }
+    .grider {
+        display: none !important;
+    }
+    .tabela {
+        border-collapse: collapse;
+        font-family: "Open Sans";
+        font-size: 0.9em;
+        margin-top: 200px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        border: 0;
+        border-radius: 8px;
+    }
+    .tabela tr {
+        background-color: #fff;
+    }
+    .tabela tr th {
+        font-weight: normal;
+    }
+    .tabela tr:nth-of-type(2n+1) {
+        background-color: #f3f3f3;
+    }
+    .tabela tr:first-of-type {
+        background-color: #362f4b;
+        color: white;
+    }
+    .tabela td {
+        text-align: center;
+    }
+    .tabela th {
+        border:#00af8c 1px;
+    }
+    .tabela tr:not(:first-of-type):not(:last-of-type) {
+        border-bottom: thin solid #bbb;
+    }   
+    .tabela a {
+        font-weight: bold;
+        font-style: italic;
+        color: rgb(0, 89, 255);
+    }
+    .tabela tr td:first-of-type {
+        font-weight: bold;
+    }
+    .tabela th,
+    .tabela td {
+        padding: 15px;
+        border:0;
+    }
+    /* .tabela tr:last-of-type {
+        border-bottom: 4px #362f4b solid;
+    } */
+    .p-j-angielski, .p-r_angielski {
+        color: rgb(0, 132, 255);
+    }
+    .p-j-angielski::before, .p-r_angielski::before {
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 8px;
+        line-height: 150%;
+        height: 8px;
+        background-color: rgba(0, 132, 255, 1);
+        display: inline-block;
+        content: " ";
+    }
+    .p-geografia, .p-r_geografia {
+        color: blueviolet;
+    }
+    .p-geografia::before, .p-r_geografia::before {
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 8px;
+        line-height: 150%;
+        height: 8px;
+        background-color: blueviolet;
+        display: inline-block;
+        content: " ";
+    }
+}
+@media screen and (max-width: 700px) {
+
+    table table {
+        display: none;
+        border-collapse: collapse;
+    }
+
+    .grider {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .grider div:empty {
+        /*display: none;*/
+    }
+    .grider div {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    .grider div:nth-child(7n+1),
+    .grider div:nth-child(7n+2)
+    {
+        display: none;
+    }
+    .old-th {
+        font-size: 19px;
+    }
+
+
+    .grider div:nth-child(7n+1) {
+        order: 1;
+    }
+    .grider div:nth-child(7n+2) {
+        order: 2;
+    }
+    .grider div:nth-child(7n+3) {
+        order: 3;
+    }
+    .grider div:nth-child(7n+4) {
+        order: 4;
+    }
+    .grider div:nth-child(7n+5) {
+        order: 5;
+    }
+    .grider div:nth-child(7n+6) {
+        order: 6;
+    }
+    .grider div:nth-child(7n) {
+        order: 7;
+    }
+
+
+    .grider time {
+        width: 25%;
+    }
+    .grider article {
+        display: flex;
+        width: 75%;
+    }
+    .grider article .n {
+        flex-grow: 0;
+        flex-basis: 20%;
+        text-align: center;
+    }
+    .grider article .s {
+        flex-basis: 20%;
+        flex-grow: 0;
+        text-align: center;
+    }
+    .grider article .p {
+        flex-grow: 6;
+        text-align: right;
+    }
+
+
+
+    .grider {
+        font-family: Garamond, sans-serif;
+        font-weight: 500;
+    }
+    .old-th time {
+        display: none;
+    }
+    .old-th article {
+        /*background-color: red;*/
+        padding-top: 20px;
+        display: block;
+        text-align: right;
+        padding-right: 20px;
+        font-size: 1.75rem;
+        line-height: 3rem;
+    }
+    .grider time {
+        color: #aaa;
+        font-style: italic;
+    }
+    .old-td + .old-td {
+        border-top: 1px solid #ddd;
+        font-size: 1.2rem;
+        line-height: 1.75rem;
+    }
+}
+
+/* some minor tweaks */
+caption {
+    text-align: center;
+    width: 100%;
+}
+form {
+    min-width: 300px;
+    margin: auto;
+    width: 50vw;
+    text-align: center;
+}
+body > div > table {
+    width: 100%;
+}
+body > div > table table {
+    margin: auto;
+}
+
+
+
+/* Only as example */
+.p-j-angielski, .p-r_angielski {
+    color: rgb(0, 132, 255)
+}
+.p-geografia, .p-r_geografia {
+    color: blueviolet;
+}
+
+
+
