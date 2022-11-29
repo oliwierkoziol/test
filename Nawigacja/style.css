@@ -1,0 +1,117 @@
+body {
+  overflow-y: scroll;
+}
+header {
+  width: 100%;
+  background-color: #712cf9;
+  padding: 12px 0px 12px 0px;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%), inset 0 -1px 0 rgb(0 0 0 / 15%);
+  position: fixed;
+}
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  flex-grow: 0;
+  margin-right: auto;
+}
+.navbar-brand {
+  margin-right: 8px !important;
+}
+.nav-item {
+  padding: 8px;
+  text-align: center;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+}
+.nav-item:hover {
+  text-decoration: none;
+  color: #fff !important;
+}
+.option-button {
+  color: rgba(255,255,255,0.85);
+  line-height: 0px;
+  font-size: 35px;
+  display: none;
+  user-select: none;
+}
+.option-button:hover {
+  color: #fff;
+}
+button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: white;
+}
+.btn-close {
+  padding: 8px !important;
+  user-select: none;
+}
+.side-menu {
+  transform: translateX(100%);
+  position: fixed;
+  flex-direction: column;
+  background-color: #712cf9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: transform .3s ease-in-out;
+  max-width: 100%;
+}
+.side-header {
+  padding: 16px 24px 0px 24px;
+}
+.side-body {
+  padding: 0px 24px 24px 24px;
+  flex-grow: 1;
+}
+.backdrop-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .15s linear;
+}
+
+.side-menu, .backdrop-fade {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 750px) {
+  .navbar-nav .nav-item:nth-child(1),
+  .navbar-nav .nav-item:nth-child(2),
+  .navbar-nav .nav-item:nth-child(3),
+  .navbar-nav .nav-item:nth-child(4),
+  .navbar-nav .nav-item:nth-child(5){
+    display: none;
+  }
+
+  .navbar-nav {
+    display: none !important;
+  }
+
+  .nav-item {
+    padding: 8px 0px 8px 0px;
+    width: 50%;
+    text-align: left;
+  }
+
+  .option-button {
+    display: block !important;
+  }
+
+  .navbar-brand {
+    margin: 0 !important;
+  }
+
+  .side-menu, .backdrop-fade {
+    visibility: visible;
+  }
+}
