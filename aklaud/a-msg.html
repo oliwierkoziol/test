@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>CSS dojo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        main {
+            position: relative;
+            font-family: sans-serif;
+            margin: 50px auto 0 auto;
+            width: 300px;
+            height: 570px;
+            overflow: hidden;
+            border: 10px solid black;
+            border-radius: 30px;
+        }
+
+        section.nav {
+            background-color: black;
+            padding: 4px;
+            text-align: right;
+            color: white;
+            line-height: 22px;
+            font-size: 22px;
+            padding-right: 10px;
+        }
+
+        section.screen {
+            background: rgb(69,9,226);
+            background: radial-gradient(circle, rgba(69,9,226,1) 2%, rgba(18,113,209,1) 5%, rgba(9,9,121,1) 12%, rgba(114,156,178,1) 51%, rgba(255,255,255,1) 80%);
+            background-size: contain;
+
+            filter: blur(10px);
+            display: flex;
+            gap: 20px;
+            height: 100%;
+            border: 1px solid yellow;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            padding: 20px;
+        }
+
+        div.icon {
+            display: flex;
+            background-color: red;
+            width: 64px;
+            height: 77px;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        div.icon::after {
+            line-height: 13px;
+            font-size: 13px;
+            content: "app";
+            width: 100%;
+            text-align: center;
+            background-color: white;
+            /*border: 4px solid blue;*/
+        }
+
+        #message {
+            position: absolute;
+            top: 45%;
+            z-index: 40;
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #888;
+            width: 90%;
+            margin-left: 5%;
+            border-radius: 10px;
+            min-height: 60px;
+            display: flex;
+            font-size: 13px;
+            font-weight: bold;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            padding-left: 20px;
+            transition-duration: .5s;
+            transition-property: color, background-color;
+        }
+        #message h6 {
+            margin: 10px 0 5px 0;
+            font-size: 14px;
+            padding: 0;
+        }
+        #message:hover {
+            transition-duration: .5s;
+            transition-property: color, background-color;
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        input:focus {
+            color: red
+        }
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+
+<main>
+    <section class="nav">
+        <time>21:37</time>
+    </section>
+    <div id="message">
+        <h6>aWatch</h6>
+        <span>
+            Your antoniWatch is fully charged.
+        </span>
+    </div>
+    <section class="screen">
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+    </section>
+</main>
+
+</body>
+</html>
